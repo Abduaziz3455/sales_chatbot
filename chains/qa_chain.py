@@ -10,6 +10,7 @@ from langchain.prompts import (PromptTemplate, SystemMessagePromptTemplate, Huma
 from langchain_community.document_loaders import CSVLoader
 from langchain_community.vectorstores import Chroma
 from langchain_core.output_parsers import StrOutputParser
+from langchain_core.runnables import RunnablePassthrough
 
 output_parser = StrOutputParser()
 
@@ -31,11 +32,11 @@ review_system_prompt = SystemMessagePromptTemplate(
     prompt=PromptTemplate(input_variables=["context"], template=review_template_str, ))
 
 review_human_prompt = HumanMessagePromptTemplate(
-    prompt=PromptTemplate(input_variables=["question"], template="History: {history}\nQuestion: {question}", ))
+    prompt=PromptTemplate(input_variables=["question"], template="Question: {question}", ))
 
 messages = [review_system_prompt, review_human_prompt]
 
-prompt_template = ChatPromptTemplate(input_variables=["context", "history", "question"], messages=messages)
+prompt_template = ChatPromptTemplate(input_variables=["context", "question"], messages=messages)
 
 chat_model = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
 
@@ -46,10 +47,11 @@ if not os.path.exists(persist_directory):
 else:
     vector_db = Chroma(persist_directory=persist_directory, embedding_function=OpenAIEmbeddings())
 retriever = vector_db.as_retriever(k=10)
-# review_chain = ({"context": reviews_retriever,
-#                  "question": RunnablePassthrough()} | review_prompt_template | chat_model | StrOutputParser())
-qa_chain = RetrievalQA.from_chain_type(chat_model, retriever=retriever, return_source_documents=False, verbose=True,
-                                       chain_type_kwargs={"verbose": True, "prompt": prompt_template,
-                                                          "memory": ConversationBufferMemory(
-                                                              memory_key="history",
-                                                              input_key="question")})
+
+qa_chain = ({"context": retriever,
+            "question": RunnablePassthrough()} | prompt_template | chat_model | StrOutputParser())
+# qa_chain = RetrievalQA.from_chain_type(chat_model, retriever=retriever, return_source_documents=False, verbose=True,
+#                                        chain_type_kwargs={"verbose": True, "prompt": prompt_template,
+#                                                           "memory": ConversationBufferMemory(
+#                                                               memory_key="history",
+#                                                               input_key="question")})
