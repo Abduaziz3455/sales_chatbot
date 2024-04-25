@@ -18,7 +18,12 @@ prompt = ChatPromptTemplate.from_messages([("system", "You are an expert at iden
                                                       "extract person name and phone number. Extract nothing if no "
                                                       "name or phone number can be found in the text.",),
                                            ("human", "{text}"), ])
-# create_openai_fn_runnable
+
 llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
 
-extract_chain = create_structured_output_runnable(Person, llm, prompt)  #
+
+def extract_chain(input: str):
+    response = create_structured_output_runnable(Person, llm, prompt).invoke(input)
+    # person_info = response.dict()
+    # send to uysot api
+    return {'input': input, 'output': "Ma'lumot uchun rahmat. Iltimos, siz bilan bog'lanishlarini kuting!"}

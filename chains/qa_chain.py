@@ -1,10 +1,8 @@
 import os
 
 import dotenv
-from langchain.chains import RetrievalQA
 from langchain.chat_models import ChatOpenAI
 from langchain.embeddings import OpenAIEmbeddings
-from langchain.memory import ConversationBufferMemory
 from langchain.prompts import (PromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate,
                                ChatPromptTemplate)
 from langchain_community.document_loaders import CSVLoader

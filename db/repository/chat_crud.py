@@ -1,6 +1,5 @@
 from sqlalchemy.orm import Session
 
-from schemas.chat_query import QueryOutput
 from db.models.chat import Chat
 
 
