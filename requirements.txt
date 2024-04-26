@@ -1,5 +1,7 @@
 httpx==0.26.0
 requests==2.31.0
+openai
+chromadb
 
 alembic
 langchain~=0.1.16
