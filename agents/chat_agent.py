@@ -1,6 +1,6 @@
 from langchain.agents import AgentExecutor, Tool, create_openai_functions_agent
 from langchain.chat_models.openai import ChatOpenAI
-from langchain_community.chat_message_histories import ChatMessageHistory
+from langchain_community.chat_message_histories import SQLChatMessageHistory
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.prompts import MessagesPlaceholder
 from langchain_core.runnables.history import RunnableWithMessageHistory
@@ -9,7 +9,8 @@ from chains.extract_chain import extract_chain
 from chains.qa_chain import qa_chain
 
 system_message = """You are Sales Assistant who answer the questions 
-about buying a flat that customers are interested in
+about buying a flat that customers are interested in.
+Be as detailed as possible, but don't make up any information.
 All answers should be in Uzbek (Russian).
 """
 
@@ -37,7 +38,7 @@ tools = [
     Tool(
         name="Extract",
         func=extract_chain,
-        description="""Use this when you need to extract phone number or person name.
+        description="""Use this only when user sent phone number or his name.
         Use the entire prompt as input to the tool.
         """,
     ),
@@ -61,13 +62,11 @@ agent_executor = AgentExecutor(
     verbose=True,
 )
 
-memory = ChatMessageHistory(session_id="test-session")
-
 agent = RunnableWithMessageHistory(
     agent_executor,
-    # This is needed because in most real world scenarios, a session id is needed
-    # It isn't really used here because we are using a simple in memory ChatMessageHistory
-    lambda session_id: memory,
+    lambda session_id: SQLChatMessageHistory(
+        session_id=session_id, connection_string="sqlite:///sql_app.db"
+    ),
     input_messages_key="input",
     history_messages_key="chat_history",
 )

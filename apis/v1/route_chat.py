@@ -17,7 +17,7 @@ async def invoke_agent_with_retry(query: str, user_id):
     Retry the agent if a tool fails to run. This can help when there
     are intermittent connection issues to external APIs.
     """
-    return await agent.ainvoke({"input": query}, config={"configurable": {"session_id": str(user_id)}})
+    return await agent.ainvoke({"input": query}, config={"configurable": {"session_id": user_id}})
 
 
 @router.get("/")

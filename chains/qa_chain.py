@@ -16,11 +16,10 @@ dotenv.load_dotenv()
 
 persist_directory = "chroma_data/"
 
-review_template_str = """You are Sales Assistant who use flat
-features to answer client questions about flats.
+review_template_str = """Use flat features to answer client questions about flats.
 Use the following context to answer questions.
 Be as detailed as possible, but don't make up any information that's not from the context.
-If you don't know an answer just say contact with admin https://t.me/Shahboz_softex.
+If you don't know an answer send admins contact from context.
 All answers should be in Uzbek (Russian).
 
 {context}
@@ -44,6 +43,7 @@ if not os.path.exists(persist_directory):
     vector_db = Chroma.from_documents(pages, OpenAIEmbeddings(), persist_directory=persist_directory)
 else:
     vector_db = Chroma(persist_directory=persist_directory, embedding_function=OpenAIEmbeddings())
+
 retriever = vector_db.as_retriever(k=10)
 
 qa_chain = ({"context": retriever,
