@@ -1,9 +1,13 @@
 httpx==0.26.0
 requests==2.31.0
 
+alembic
 langchain~=0.1.16
 python-dotenv~=1.0.0
 pydantic~=2.7.0
 fastapi~=0.110.2
 uvicorn
 sqlalchemy~=2.0.25
+# alembic revision --autogenerate -m "create user and blog table migrations"
+# alembic upgrade head
+# uvicorn main:app --host 0.0.0.0 --port 8000
