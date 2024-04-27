@@ -1,5 +1,6 @@
 from fastapi import APIRouter, status
 from fastapi import Depends
+from sqlalchemy import delete, table
 from sqlalchemy.orm import Session
 
 from agents.chat_agent import agent
@@ -11,7 +12,7 @@ from utils.async_utils import async_retry
 router = APIRouter()
 
 
-@async_retry(max_retries=10, delay=1)
+@async_retry(max_retries=3, delay=1)
 async def invoke_agent_with_retry(query: str, user_id):
     """
     Retry the agent if a tool fails to run. This can help when there
@@ -34,3 +35,12 @@ async def send_message(query: QueryInput, db: Session = Depends(get_db)):
     response["intermediate_steps"] = [str(s) for s in response["intermediate_steps"]]
     create_new_message(response.copy(), db)
     return response
+
+
+@router.get("/delete_history", status_code=status.HTTP_200_OK)
+async def delete_chat_histories(db: Session = Depends(get_db)):
+    db.execute(
+        delete(table('message_store'))
+    )
+    db.commit()
+    return {'status': 'Chat history was cleaned successfully!'}

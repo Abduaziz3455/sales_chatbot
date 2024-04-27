@@ -28,8 +28,8 @@ tools = [
         name="Features",
         func=qa_chain.invoke,
         description="""Always use this tool as main tool. you need to answer objective questions
-        about flat features like area, rooms, district and other flat parameters
-        that could be answered about a flat using semantic search. 
+        about flat features like area, rooms, district, plan image and other flat parameters
+        that could be answered about a flat using semantic search. And you can give seller contact information if needed. 
         Use the entire prompt as input to the tool. For instance, if the prompt is
         "How much is the price per square meter of 2-room houses?", the input should be
         "How much is the price per square meter of 2-room houses?".
@@ -38,8 +38,9 @@ tools = [
     Tool(
         name="Extract",
         func=extract_chain,
-        description="""Use this only when user sent phone number or his name.
-        Use the entire prompt as input to the tool.
+        description="""Use this only when client sent  his name and phone number.
+        Use the entire prompt as input to the tool. 
+        Examples: "My name is Shokir 901234567", "917399962 ismim Aziz", "Shahboz".
         """,
     ),
 ]
