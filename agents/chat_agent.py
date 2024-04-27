@@ -7,11 +7,24 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 
 from chains.extract_chain import extract_chain
 from chains.qa_chain import qa_chain
+import pandas as pd
 
-system_message = """You are Sales Assistant who answer the questions 
+df = pd.read_csv('data/ready.csv')
+phone = df['builder_phone'][0]
+with open('questions.txt') as file:
+    questions = file.read()
+    file.close()
+
+system_message = f"""You are Sales Assistant who answer the questions 
 about buying a flat that customers are interested in.
+For complete information take person name and phone number to contact with operators.
 Be as detailed as possible, but don't make up any information.
+If you don't know an answer send admins phone {phone}.
 All answers should be in Uzbek (Russian).
+
+Here is some default questions with answers:
+
+{questions}
 """
 
 agent_prompt = ChatPromptTemplate.from_messages(
@@ -38,7 +51,7 @@ tools = [
     Tool(
         name="Extract",
         func=extract_chain,
-        description="""Use this only when client sent  his name and phone number.
+        description="""Use this only when client sent his name and phone number.
         Use the entire prompt as input to the tool. 
         Examples: "My name is Shokir 901234567", "917399962 ismim Aziz", "Shahboz".
         """,
