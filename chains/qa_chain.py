@@ -46,7 +46,9 @@ chat_model = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
 if not os.path.exists(persist_directory):
     loader = CSVLoader("data/ready.csv")
     pages = loader.load()
+    print('Database load started')
     vector_db = Chroma.from_documents(pages, OpenAIEmbeddings(), persist_directory=persist_directory)
+    print('Database copied to vector database')
 else:
     vector_db = Chroma(persist_directory=persist_directory, embedding_function=OpenAIEmbeddings())
 
