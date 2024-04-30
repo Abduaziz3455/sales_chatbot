@@ -16,14 +16,12 @@ with open('questions.txt') as file:
     file.close()
 
 system_message = f"""You are Sales Assistant who answer the questions 
-about buying a flat that customers are interested in.
-For complete information take person name and phone number to contact with operators.
+about flat features. For complete information take phone number to contact with operators.
 Be as detailed as possible, but don't make up any information.
-If you don't know an answer send admins phone {phone}.
-All answers should be in Uzbek (Russian).
+If you don't know an answer just say don't know and send admins phone {phone} to contact.
+All answers should be in Uzbek.
 
-Here is some default questions with answers:
-
+Here is additional questions with answers:
 {questions}
 """
 
@@ -51,9 +49,9 @@ tools = [
     Tool(
         name="Extract",
         func=extract_chain,
-        description="""Use this only when client sent his name and phone number.
-        Use the entire prompt as input to the tool. 
-        Examples: "My name is Shokir 901234567", "917399962 ismim Aziz", "Shahboz".
+        description="""Use this only when you receive user phone number.
+        Use only received phone number prompt as input to the tool.
+        For instance, if the prompt is "My phone number 901234567", the input should be "901234567".
         """,
     ),
 ]

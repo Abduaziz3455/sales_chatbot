@@ -10,20 +10,21 @@ dotenv.load_dotenv()
 
 
 class Person(BaseModel):
-    name: Optional[str] = Field(None, description="The person's name")
     phone_number: Optional[str] = Field(None, description="The person's phone number")
 
 
-prompt = ChatPromptTemplate.from_messages([("system", "You are an expert at identifying person's identity.  Only "
-                                                      "extract person name and phone number. Extract nothing if no "
-                                                      "name or phone number can be found in the text.",),
+prompt = ChatPromptTemplate.from_messages([("system", "You are an expert at identifying person phone number. "
+                                                      "Extract nothing if no phone number can be found in the text.",),
                                            ("human", "{text}"), ])
 
 llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
 
 
 def extract_chain(input: str):
-    response = create_structured_output_runnable(Person, llm, prompt).invoke(input)
+    # response = create_structured_output_runnable(Person, llm, prompt).invoke(input)
+    print('*'*30)
+    print(input)
+    print('*'*30)
     # person_info = response.dict()
     # send to uysot api
     return {'input': input, 'output': "Ma'lumot uchun rahmat. Iltimos, siz bilan bog'lanishlarini kuting!"}
