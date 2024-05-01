@@ -1,15 +1,13 @@
 httpx==0.26.0
 requests==2.31.0
-openai
-chromadb
 
-alembic
+alembic~=1.13.1
 langchain~=0.1.16
 python-dotenv~=1.0.0
 pydantic~=2.7.0
-fastapi~=0.110.2
-uvicorn
+fastapi~=0.109.0
 sqlalchemy~=2.0.25
 # alembic revision --autogenerate -m "create user and blog table migrations"
 # alembic upgrade head
 # uvicorn main:app --host 0.0.0.0 --port 8000
+pandas~=2.2.1

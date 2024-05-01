@@ -46,12 +46,12 @@ tools = [
         "How much is the price per square meter of 2-room houses?".
         """,
     ),
+
     Tool(
         name="Extract",
         func=extract_chain,
-        description="""Use this only when you receive user phone number.
-        Use only received phone number prompt as input to the tool.
-        For instance, if the prompt is "My phone number 901234567", the input should be "901234567".
+        description="""Use this only when user sends his own phone number.
+        Use whole prompt as input to the tool.
         """,
     ),
 ]

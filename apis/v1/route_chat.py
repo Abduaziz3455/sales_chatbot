@@ -29,7 +29,6 @@ async def get_status():
 @router.post("/agent", response_model=QueryOutput, status_code=status.HTTP_201_CREATED)
 async def send_message(query: QueryInput, db: Session = Depends(get_db)):
     agent_response = await invoke_agent_with_retry(query.message, query.user_id)
-    print(f"History: ******\n{agent_response['chat_history']}\n******")
     response = {'input': query.message, 'output': agent_response['output'], 'user_id': query.user_id,
                 'company_id': query.company_id, 'intermediate_steps': agent_response['intermediate_steps']}
     response["intermediate_steps"] = [str(s) for s in response["intermediate_steps"]]

@@ -14,17 +14,13 @@ class Person(BaseModel):
 
 
 prompt = ChatPromptTemplate.from_messages([("system", "You are an expert at identifying person phone number. "
-                                                      "Extract nothing if no phone number can be found in the text.",),
+                                                      "Extract nothing if no phone number can be found in the text."
+                                                      "All answers should be in Uzbek.",),
                                            ("human", "{text}"), ])
 
 llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
 
 
 def extract_chain(input: str):
-    # response = create_structured_output_runnable(Person, llm, prompt).invoke(input)
-    print('*'*30)
-    print(input)
-    print('*'*30)
-    # person_info = response.dict()
-    # send to uysot api
-    return {'input': input, 'output': "Ma'lumot uchun rahmat. Iltimos, siz bilan bog'lanishlarini kuting!"}
+    response = create_structured_output_runnable(Person, llm, prompt).invoke(input)
+    return response
