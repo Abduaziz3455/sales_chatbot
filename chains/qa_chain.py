@@ -52,7 +52,7 @@ if not os.path.exists(persist_directory):
 else:
     vector_db = Chroma(persist_directory=persist_directory, embedding_function=OpenAIEmbeddings())
 
-retriever = vector_db.as_retriever(k=10)
+retriever = vector_db.as_retriever(search_kwargs={"k": 10})
 
 qa_chain = ({"context": retriever,
             "question": RunnablePassthrough()} | prompt_template | chat_model | StrOutputParser())
