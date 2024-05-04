@@ -8,6 +8,9 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 from chains.extract_chain import extract_chain
 from chains.qa_chain import qa_chain
 import pandas as pd
+from environs import Env
+
+env = Env()
 
 df = pd.read_csv('data/ready.csv')
 phone = df['builder_phone'][0]
@@ -57,7 +60,7 @@ tools = [
 ]
 
 chat_model = ChatOpenAI(
-    model="gpt-3.5-turbo",
+    model=env.str('MODEL'),
     temperature=0,
 )
 

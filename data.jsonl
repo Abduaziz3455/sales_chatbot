@@ -1,0 +1,290 @@
+[
+  {
+    "savol": "Ushbu xonadonning umumiy narxi haqida batafsil gapirib bera olasizmi? U muzokara qilish mumkinmi?",
+    "javob": "Ushbu xonadonning umumiy narxi [total_price] deb ko'rsatilgan. Biz o'zaro muvofiqlikka erishish uchun taklifingiz haqida suhbatlashishimiz va birgalikda muzokara qilishimiz mumkin."
+  },
+  {
+    "savol": "Bino qurilayotganini ko'rdim. Loyiha qachon yakunlanadi deb o'ylaysiz?",
+    "javob": "Ha, to'g'ri, [building_name] binosi [building_starts] sanasida qurilishga kirishilgan va [building_ends] sanasida yakunlanishi rejalashtirilgan. Siz yangi xonadoningizga shu vaqtdan so'ng ko'chib o'tishingiz mumkin!"
+  },
+  {
+    "savol": "Ushbu xonadon qurilgan binoning bir qismi yoki qurilish davom etayotganmi?",
+    "javob": "[finished_flat] qiymati xonadonning qurilish bosqichida yoki qurilish yakunlanganligini ko'rsatadi. Qurilish bosqichi haqida batafsil ma'lumotga ega bo'lishni xohlasangiz, menga xabar bering."
+  },
+  {
+    "savol": "Xonadon [region] hududida joylashgan bo'lsa, uning qaysi tumanda ekanini aytib bera olasizmi?",
+    "javob": "Albatta! Xonadon [region] hududining [district] tumanida joylashgan."
+  },
+  {
+    "savol": "Ushbu xonadon uchun xonalarning tartibi va maydonini ko'rsatuvchi reja rasmi mavjudmi?",
+    "javob": "Ha, albatta, xonadon reja rasmini sizga yuborishim mumkin. [flat_plan_image_url] manzilida xonalar va maydonning vizual rejasi mavjud."
+  },
+  {
+    "savol": "Xonadonning maydoni qiziqtirmoqda. Uning kengligi qanday ekanini aytib bera olasizmi?",
+    "javob": "Xonadonning umumiy maydoni [area] kv.metr ko'rsatilgan, bu qulay yashash uchun yetarli maydon hisoblanadi."
+  },
+  {
+    "savol": "Bu ajoyib xonadon, lekin men yuqori qavatlardagi xonadonlarni afzal ko'raman. Yuqori qavatlardagi xonadonlaringiz bormi?",
+    "javob": "Tushunaman. Afsuski, boshqa qavatlardagi xonadonlar mavjudligini aniqlay olmayman, lekin agar qiziqsangiz, yuqori qavatlardagi xonadonlar haqida aniqlab olishim mumkin."
+  },
+  {
+    "savol": "Ushbu xonadonda tashqi maydonga ega bo'ladimi? Ochiq havoga chiqish imkoniyatiga ega bo'lish ajoyib bo'lar edi.",
+    "javob": "[terrace] maydonida tashqi maydonning mavjudligi ko'rsatilgan. Ushbu xonadonning tashqi xususiyatlari haqida batafsil ma'lumotga ega bo'lishni xohlasangiz, menga xabar bering."
+  },
+  {
+    "savol": "Agar xonadonni sotib olishga qaror qilsam, to'lov jarayoni qanday bo'ladi? Boshlang'ich xarajatlar mavjudmi?",
+    "javob": "Boshdan to'lovlar foizi [prepayment_percent] qiymati ko'rsatilgan, muddatli to'lovlar haqida [installment_pay_month] qismida ma'lumotlar mavjud. Bu dastlabki va oylik to'lovlar haqida tasavvur hosil qilishingizga yordam beradi."
+  },
+  {
+    "savol": "Loyiha bosh pudratchilarini qiziqtirmoqda. Ularning obro'si yoki bog'lanish ma'lumotlari haqida gapirib bera olasizmi?",
+    "javob": "Ushbu loyiha pudratchilaridan biri [builder_name]. Afsuski, ularning obro'si haqida ma'lumotga ega emasman, lekin siz [builder_phone] raqami orqali ularga murojaat qilishingiz mumkin."
+  },
+  {
+    "savol": "Toza havoni his qilish uchun balkonlari yoki tomtomingizlar mavjudmi?",
+    "javob": "Ha, ayrim xonadonlarimizda balkon yoki tashqi maydonchalar mavjud, ularda toza havoni his qilish mumkin."
+  },
+  {
+    "savol": "Ushbu xonadon qaysi qavatlarda joylashgan? Men yuqori yoki quyi qavatlardagi xonadonlarni tanlashni xohlar edim.",
+    "javob": "Ushbu xonadonning qavati [floor] qiymatida ko'rsatilgan. Agar siz ma'lum bir qavatlardagi xonadonlarni xohlasangiz, xursandchilik bilan sizga boshqa variantlarni ko'rsatishim mumkin."
+  },
+  {
+    "savol": "Ushbu xonadon oxirgi paytlarda ta'mirlanganmi yoki qayta ta'mirlanganligi haqida ma'lumot bera olasizmi?",
+    "javob": "[repaired] maydonida ushbu xonadonga ta'mirlash ishlari olib borilganligi ko'rsatilgan. Qo'shimcha ma'lumotlarga ega bo'lishni xohlasangiz, menga xabar bering."
+  },
+  {
+    "savol": "Ba'zi xususiyatlarni o'zgartirishni yoki yangilashtirish qiziqtirmoqda. Pudratchi tomonidan bunga ruxsat beriladi?",
+    "javob": "Bu juda yaxshi savol. Afsuski, individual o'zgartirishlar haqida batafsil ma'lumotga ega emasman, lekin siz [builder_name] kompaniyasi bilan [builder_phone] raqami orqali bog'lanishingiz va yangilashlar imkoniyati haqida suhbatlashishingiz mumkin."
+  },
+  {
+    "savol": "Bir kv.metrga to'g'ri kelgan narxini ko'rib chiqadigan bo'lsak, bu xonadon atrofdagi boshqa xonadonlarga qaraganda qanday farq qiladi?",
+    "javob": "Ushbu xonadonni bir kv.metriga to'g'ri kelgan narxi [price_per_area] deb ko'rsatilgan. Agar siz uchun qulaylashtiradigan bo'lsa, [district] tumani bo'yicha boshqa xonadonlar narxlari bilan taqqoslab beraman."
+  },
+  {
+    "savol": "Bu xonadon ehtiyojlarimga to'liq mos kelayotganga o'xshaydi, lekin u tomtomga ega emasligini payqadim. Tashqi maydonchaga ega bo'lgan o'xshash xonadonlaringiz bormi?",
+    "javob": "Muammo yo'q, tashqi maydonga bo'lgan istakingizni tushunish foydali. Ushbu xonadon tashqi maydonga ega bo'lmasada, bizning xonadonlar ro'yxatidan tashqi maydonga ega bo'lgan o'xshash variantlarni qidirib ko'rishim mumkin. Agar siz bunga qiziqsangiz, xabar bering."
+  },
+  {
+    "savol": "Bir kv.metriga to'g'ri keladigan narx [price_per_area] deb ko'rsatilgan. Bu narxning xonadonning umumiy narxiga qanday to'g'ri kelishini tushuntira olasizmi?",
+    "javob": "Albatta! Xonadonning umumiy maydoni [area], bir kv.metrga to'g'ri keladigan narxi esa [price_per_area] bo'lsa, umumiy narxi [total_price] bo'ladi."
+  },
+  {
+    "savol": "Bu xonadon allaqachon ta'mirlangan va ko'chish uchun tayyormi yoki qo'shimcha ta'mirlash ishlari talab etiladimi?",
+    "javob": "Xonadonning ta'mirlanganligi haqidagi ma'lumot [repaired] qismida berilgan. Bu ma'lumot xonadon ko'chib kelish uchun tayyor yoki ishlarga muhtoj ekanligini ko'rsatadi."
+  },
+  {
+    "savol": "Xonadonning aniq joylashgan qismini bilishni istardim. Manziliga ega bo'lsangiz yubora olasizmi?",
+    "javob": "Aniq joylashuvni bilish istagingizni tushunaman. Afsuski, xavfsizlik sabablari bilan to'liq manzilni bera olmayman, lekin xonadon [district] tumanida joylashgan deb ko'rsatilgan. Agar ushbu hududga oid boshqa ma'lumotlarga ega bo'lishni xohlasangiz, menga xabar bering."
+  },
+  {
+    "savol": "Ushbu xonadonning virtual ekskursiyasi mavjudmi yoki qaror qabul qilishdan oldin uni shaxsan ko'rib chiqish imkoniyati bormi?",
+    "javob": "Ayni paytda virtual ekskursiyalar mavjudligini tasdiqlay olmayman, lekin shaxsan ko'rib chiqish uchun vaqt belgilab olish imkoniyatini aniqlab ko'raman. Bunga qiziqsangiz, xabar bering."
+  },
+  {
+    "savol": "E'londa [number] xona mavjudligi ko'rsatilgan. Nechta yotoq va vanna xonasi borligini aniqlashtira olasizmi?",
+    "javob": "Afsuski, yotoq va vanna xonalari soni haqidagi ma'lumot berilmagan, lekin umumiy xonalar soni [number] deb ko'rsatilgan. Xonadon tartibi haqida batafsil ma'lumotga ega bo'lishni xohlasangiz, menga xabar bering."
+  },
+  {
+    "savol": "Ushbu xonadon mening ehtiyojlarimga mos keladi, lekin [prepayment_percent] foizlik boshlang'ich badal haqida savol tug'ilmoqda. Bu miqdorga nisbatan imtiyozlar mavjudmi?",
+    "javob": "To'lov variantlarini ko'rib chiqish istagingizni tushunaman. [prepayment_percent] foizlik boshlang'ich badal narxi ko'rsatilgan bo'lsada, bu qismda imtiyozlar mavjudligi aniq emas. Lekin sizga tegishli imtiyozlar yoki chegirmalar borligini aniqlab olaman."
+  },
+  {
+    "savol": "Pudratchi [builder_name] ekani ko'rsatilgan. Xonadon uchun kafolat siyosatlari haqida ma'lumotingiz bormi?",
+    "javob": "Afsuski, kafolat siyosatlari haqida ma'lumotga ega emasman, lekin pudratchi [builder_name] bo'lsa, siz ularga [builder_phone] raqami orqali bog'lanib, kafolat shartlari haqida so'rashingiz mumkin."
+  },
+  {
+    "savol": "Ushbu xonadon uchun moliyaviy imtiyozlar mavjudmi yoki umumiy narxni to'liq to'lashim kerak bo'ladi?",
+    "javob": "Afsuski, moliyaviy imtiyozlar haqida tasdiqlash uchun jamoamiz bilan bog'lanishim kerak bo'ladi. Garchi, muddatli to'lov rejasi haqidagi ma'lumot [installment_pay_month] qismida keltirilgan. Bu narxni taqsimlab to'lash imkoniyatlari haqida tasavvur hosil qilishingizga yordam beradi."
+  },
+  {
+    "savol": "Men ushbu xonadonni binoning boshqa xonadonlari bilan taqqoslagani holda ko'rib chiqishni istardim. Shu binodagi boshqa xonadonlaringiz haqidagi e'lonlar mavjudmi?",
+    "javob": "Albatta! [building_name] binosi bo'yicha boshqa xonadonlar ro'yxatini taqdim etishim mumkin. Sizni necha xonali uy qiziqtiryapti?"
+  },
+  {
+    "savol": "Bu xonadan qiziqqan bo'lsam-da, oldinga siljishdan oldin umumiy maydoni haqida aniqlashtirmoqchiman. Xona qancha katta?",
+    "javob": "Xonaning umumiy maydoni [area] kv.metr deb ko'rsatilgan. U qulay yashash joyini taklif qiladi."
+  },
+  {
+    "savol": "Xona baland qavatdami joylashgan? Chiroyli manzaralarni ko'rishni xohlayman.",
+    "javob": "E'londan xonaning aniq qaysi qavatda joylashganini aytolmayman. Ammo qavat ma'lumoti [floor] bo'limida berilgan. Agar yuqori qavatdagi xonalar bo'yicha so'rashni xohlasangiz, xursandchlik bilan tekshirib ko'raman."
+  },
+  {
+    "savol": "Binoda sport zali yoki suzish havzasi kabi qulayliklari bormidi?",
+    "javob": "E'londa binoning qulaylik imkoniyatlari ko'rsatilmagan, lekin sport zali yoki suzish havzasi borligini aniqlab olishim mumkin albatta."
+  },
+  {
+    "savol": "Qaror qabul qilishdan oldin xonani ko'rib chiqish imkoniyati bormidi?",
+    "javob": "Albatta! Aslida, xonani shaxsan ko'rish joyga baho berishning yaxshi usuli hisoblanadi. Sizga qulay bo'lgan vaqtda ko'rib chiqish uchun vaqt belgilaymiz. Buni qilishni xohlaysizmi?"
+  },
+  {
+    "savol": "Xona hali qurilishda bo'lgani uchun, kechiktirishlar bo'lganda kafolat mavjudmi?",
+    "javob": "Bu jiddiy savol. Binoning qurilishi [building_ends] ga qadar yakunlanishi kutilmoqda va kechiktirishlar kam bo'lsa-da, kutilmagan holatlar bo'lishi mumkin. Odatda standart kafolatlar mavjud bo'ladi, lekin quriluvchining kafolat siyosati haqida batafsil ma'lumot bera olaman."
+  },
+  {
+    "savol": "Quriluvchi [builder_name] deb ko'rsatilgan. Ularning ishlari haqida fikrlar yoki mulohazalar mavjudmi?",
+    "javob": "To'g'ridanlto'g'ri mulohazalarim yo'q, ammo quriluvchi kompaniya [builder_name] bo'lgani uchun, ularning obro'si va o'tgan loyihalarini onlayn ma'lumotlardan yoki [builder_phone] raqami orqali so'rashingiz mumkin."
+  },
+  {
+    "savol": "Bu xona ehtiyojlarimga to'liq javob beradi, lekin binodagi shovqin darajasi qiziqtirmoqda. Binoning tovushlarga qarama-qarshilik xususiyatlari haqida ma'lumot bormidi?",
+    "javob": "E'londa xona tovush o'tkazmasligi haqida ma'lumot berilmagan, lekin binoning qurilish materiallari va shovqinga chidamlilik xususiyatlari bo'yicha aniqlab olaman."
+  },
+  {
+    "savol": "Oldinga siljishga qaror qilsam, jarayondagi keyingi qadamlar nimalardan iborat?",
+    "javob": "Keyingi qadamlar odatda shartnomani rasmiylashtirib, xonani badelga biriktirishdan iborat bo'ladi. Biz jarayonning har bir bosqichida siz bilan birga bo'lib, barchasi silliq kechishiga kafolat beramiz."
+  },
+  {
+    "savol": "[prepayment_percent] foizdan iborat bo'lgan oldindan to'lov miqdorini kelishib olish mumkinmi?",
+    "javob": "Oldindan to'lov [prepayment_percent] foiz bo'lib, standart hisoblanadi. Ammo ayrim holatlardan kelib chiqqan holda u o'zgartirilishi mumkin. Vaziyatingizni batafsilroq mulohaza qilib, o'zgartirish imkoniyatlarini ko'rib chiqamiz."
+  },
+  {
+    "savol": "Xona yoki bu loyiha haqida batafsil ma'lumot qog'ozlari yoki bukletlari mavjudmi?",
+    "javob": "Bukletlar mavjud bo'lishi mumkin. Shuningdek, xona va qurilish loyihasi haqida batafsil ma'lumotlarni ham yuboraman va bu sizga yordam berishi mumkin."
+  },
+  {
+    "savol": "Salom, bu xonadan qiziqayapman, lekin e'londa ta'mirlanganligi yoki yo'qligi aytilmagan. Xona darhol ko'chib o'tishga tayyor ekanmi?",
+    "javob": "Xonaning ta'mirlanganligi haqidagi ma'lumot [repaired] bo'limida berilgan. Bu yerdan u ko'chib o'tishga tayyormi yoki ta'mirlashga muhtojligi ko'rsatiladi."
+  },
+  {
+    "savol": "Ajoyib, xona ko'chib o'tishga shay ekan! Narxiga mebellar kirganmi yoki xona mebelsiz turidimi?",
+    "javob": "E'londa mebel borligiga oid ma'lumot berilmagan. Odatda xonalar mebelsiz taklif qilinadi, lekin aniqlab olishim mumkin."
+  },
+  {
+    "savol": "Muammo emas, mebelsiz bo'lsa ham maydonga to'g'ri keladi. Bu xona maydonidan kichikroq, uni yolg'iz kishiga yoki juftlikka tavsiya qilasizmi?",
+    "javob": "Umumiy maydoni [area] bo'lib, [number] ta xonadan iborat. Bu yolg'iz yashash yoki minimalistik hayot kechiradigan juftlikka mos bo'lishi mumkin."
+  },
+  {
+    "savol": "Bu judayam qo'l keladi, qulay joyni izlayotgan yolg'iz kishiman. Binoda kirishni nazorat qiluvchi to'siq yoki kameralar bormidi?",
+    "javob": "E'londa xavfsizlik choralari ko'rsatilmagan, lekin kirishni nazorat qiluvchi to'siq, kameralar yoki yashovchilar xavfsizligini ta'minlovchi boshqa choralarni so'rab bilaman."
+  },
+  {
+    "savol": "Xavfsizlik menga juda muhim. Tekshirib ko'rganing uchun rahmat! Xonaga kunduzi yorug'lik tushadimi yoki binoning soyali tarafida ekanmi?",
+    "javob": "Afsuski, e'londan xonaga kunduzi yorug'lik tushishi aniq emas. Ammo xonaning binodagi joylashuvini aniqlab, quyosh nuriga tutashib turishini bilishim mumkin."
+  },
+  {
+    "savol": "Yaxshi, bu yordamchi bo'ladi. Kunduzi yorug'lik tushishi katta ustunlikdir. Hozircha so'nggi savol: kommunal xizmatlar to'lovi oylik to'lovlariga kiradimi yoki alohida to'lanadimi?",
+    "javob": "E'londa kommunal xizmatlar haqida aniq ma'lumot berilmagan. Odatda oylik xizmat to'lovlari umumiy binoning xarajatlariga ketadi, lekin elektr va suv bilan bog'liq to'lovlar alohida yashash joyining egasi tomonidan to'lanadi."
+  },
+  {
+    "savol": "Tushunaman, xizmatlaringiz uchun rahmat! Savollarimga javob berganing uchun juda minnatdorman. Bu xonani jiddiy ravishda ko'rib chiqaman.",
+    "javob": "Xizmat uchun rahmat! Sizga har qanday yordam berishdan xursandmiz. Agar boshqa savollaringiz bo'lsa yoki xonani ko'rib chiqishni xohlasangiz, iztirob bo'lmang."
+  },
+  {
+    "savol": "Bu xona masofaviy ish tarzi uchun juda mos tushayapti. Unda maxsus ish joyi yoki uy ofisi qilish mumkin bo'lgan xona bormidi?",
+    "javob": "[flat_plan_image_url] dagi xonalar joylanishi rasmi xonalarning tartibini ko'rish imkonini beradi. Garchi maxsus ish joyi bo'lmasa ham, o'rnatilgan mebellari kam bo'lgan xonani uy ofisi sifatida moslashtirish mumkin."
+  },
+  {
+    "savol": "E'londa xonaning [number] ta xonadan iborat eklani aytilgan. Xonalar tarkibini batafsil tushintirib bera olasizmi? Alohida bolalar xonasi bormidi yoki xonalar xususan belgilanmaganligi ko'rsatilganmi?",
+    "javob": "Afsuski, e'londa alohida xonalarning maqsadi ko'rsatilmagan. Faqat umumiy [number] ta xonadan iborat eklani aytilgan. Bolalar xonasi borligini tasdiqlash imkoni yo'q."
+  },
+  {
+    "savol": "Xona [district] tumanida joylashgani uchun, ommaviy transport qulaylikka egami? Temir yo'l bekati yoki avtobusga yaqin bo'lishi judayam qo'l keladi.",
+    "javob": "Xonaning aniq joylashuvi ko'rsatilmagan bo'lsa ham, [district] tumanida joylashganligi ommaviy transportga yaqin ekanligini bildiradi. Qulaylik uchun yaqin temir yo'l bekati yoki avtobuslar haqida qo'shimcha ma'lumot olaman."
+  },
+  {
+    "savol": "E'londa xonada aylana mavjudligi aytilgan, lekin uning o'lchamini va eriluvchanligini tushuntira olasizmi? Kichikroq balkon yoki kengaytirilgan hovlimi?",
+    "javob": "Aylananing borligini [terrace] bo'limida ko'rishingiz mumkin. Afsuski, o'lchamlar haqida ma'lumot berilmagan. Aylananing o'lchomlari va xonadan qanday chiqish mumkinligi to'g'risida qo'shimcha ma'lumot so'rab olishimiz mumkin."
+  },
+  {
+    "savol": "Xona rejasida oshxona rasmi yo'qligini ko'rdim. Oshxonaning jihoz yoki xususiyatlarini tushuntira olasizmi? Unda zamonaviy jihozlar o'rnatilganmi?",
+    "javob": "Xona rejasi asosan xonalar joylashuvi haqida ma'lumot beradi, ammo barcha xususiyatlarni ko'rsatmaydi. Jihozlar haqida ma'lumot bo'lmasligi mumkin, lekin oshxona zamonaviy jihozlar bilan jihozlanganligi haqida aniqlab olaman."
+  },
+  {
+    "savol": "E'londa binoning muddatli to'lov rejasi ekanligi aytilgan, lekin oldindan to'lovdan tashqari boshqa bir martalik badelar ham olinadimi?",
+    "javob": "[installment_pay_month] bo'limida muddatli to'lov rejasi haqida ma'lumotlar mavjud. Oldindan to'lovdan tashqari boshqa bir martalik badellar olinishi mumkin, lekin muddatli to'lov tizimida oldindan qancha to'lanishi kerak ekanligini aniqlab olaman."
+  },
+  {
+    "savol": "[district] tumanda joylashgani uchun, atrofdagi parkovka imkoniyatlari qanday? Binoda parkovka joyi mavjudmi yoki ko'chada qidirishga to'g'ri keladimi?",
+    "javob": "E'londa parkovka mavjudligi ko'rsatilmagan. [district] tumani uchun binolarda parkovka joyi cheklangan bo'lishi mumkin. Lekin binodan tashqarida parkovka imkoniyatlarini hamda atrofdagi ko'cha parkovka qoidalarini aniqlab olaman."
+  },
+  {
+    "savol": "Bu xona mening ehtiyojlarimga to'g'ri kelayotgandek tuyulayapti, lekin e'londa u pastki qavat ekanligini ko'rdim. Pastki qavat xavfsizligi taqdim etiladimi?",
+    "javob": "Xonaning qaysi qavatda ekanligi haqida ma'lumot [floor] bo'limida berilgan. Pastki qavat bo'lishi xavfsizlik uchun muammolar tug'dirishi mumkin, ammo binodagi xavfsizlik choralari e'londa ko'rsatilmagan bo'lishi mumkin. Pastki qavat xonalari xavfsizligi haqida aniqlab olishim mumkin."
+  },
+  {
+    "savol": "Ta'vsifda xona ta'mirlangan deyilgan, lekin bu oxirgi ta'mirlangan degan ma'nodami, yoki odatdagi xonadonlarning xolos?",
+    "javob": "[repaired] bo'limidagi ma'lumot xonaning umuman ishlashiga ishora qiladi, ammo so'nggi qilingan ta'mirlarga ishora qilmaydi. Xonaga so'nggi qachon ta'mirlash ishlari qilinganini aniqlab olishimiz mumkin."
+  },
+  {
+    "savol": "Oxirgi savol, quriluvchi [builder_name] ekani ko'rsatilgan. [district] tumanida xona binolarni qurish tajribalari xaqida ma'lumot bera olasizmi?",
+    "javob": "Quriluvchi [builder_name] ekani aytilgan. Ularning tajriba va malakalarini aniqlab olish uchun [builder_phone] raqami orqali bog'lanishingiz mumkin. Mavjud ma'lumotlarim cheklangan bo'lsa ham, ularga xonaning qurulishi haqidagi ma'lumotlar taqdim etishlari mumkin."
+  },
+  {
+    "savol": "Salom! Bu xonadan qiziqayapman. Menga uning nechta yotoqxonasi borligini ayta olasizmi?",
+    "javob": "Albatta! E'londa xonaning [number] ta yotoqxonasi bor deb ko'rsatilgan."
+  },
+  {
+    "savol": "E'londa aylana haqida aytilgan, bu balkon yoki aylanadir?",
+    "javob": "Aylana haqida batafsil ma'lumot berilmagan, lekin alohida e'lon qilingani bu standart balkondan kengaytirilgan tashqi joy ekanligini anglatadi."
+  },
+  {
+    "savol": "Ajoyib! Xona bilan birgalikda parkovka joyi berilganmi?",
+    "javob": "Afsuski, e'londa parkovka mavjudligi ko'rsatilmagan. Binodagi parkovka imkoniyatlari haqida so'rab ko'rishim mumkin."
+  },
+  {
+    "savol": "Muammo emas. Binoda kir yuvish joyi bormi yoki tashqariga chiqib kir yuvishga to'g'ri keladimi?",
+    "javob": "E'londa kir yuvish joyi haqida ma'lumot yo'q. Binoda kir yuvish mashinasi yoki yashuvchilar uchun umumiy kir yuvish xonasi borligini tekshirib ko'rishimiz mumkin."
+  },
+  {
+    "savol": "Bu xona men va oilamga juda mos tushayapti. Uyda hayvonlar boqishga ruxsat bormidi?",
+    "javob": "Hayvonlar boqish qoidalarini aniqlamasdan ayta olmayman. Lekin hayvonlarni boqish qoidalari haqida aniqlab olishimiz mumkin."
+  },
+  {
+    "savol": "Xo'p, maydonga to'g'ri keladi. Binoda umumiy foydalaniladigan joylar, masalan, tomda aylana yoki sport zali bormidi?",
+    "javob": "E'londa binoning qulayliklari ko'rsatilmagan, lekin biz tom aylanasi, sport zali yoki boshqa umumiy joylar mavjudligini aniqlab olishimiz mumkin."
+  },
+  {
+    "savol": "Bu yangi bino yoki ta'mirlangan eski binomi?",
+    "javob": "[finished_flat] bo'limida tugatilish holati ko'rsatiladi. Undan binoning yangi yoki eski va ta'mirlangan binomi aniq bo'ladi."
+  },
+  {
+    "savol": "Bu xona [district] tumanida joylashgan ekan, qahvahona tumanlardanmi yoki sergakligi bilan ajralib turadi?",
+    "javob": "Aniq manzil ko'rsatilmagan bo'lsa ham, [district] tumani umumiy ravishda [Internet ma'lumotlariga asoslangan qisqa ta'rif] bilan tanilgan. Tuman haqida batafsil ma'lumotlarni internetdan qidirib ko'rsangiz maydonga to'g'ri keladimi?"
+  },
+  {
+    "savol": "Ajoyib, bu yordamchi bo'ladi. So'nggi savol, ko'rsatilgan narx xonaning umumiy narximidi yoki undan tashqari boshqa xarajatlar ham bormi?",
+    "javob": "[total_price] dagi narx faqatgina xona narxidir. Mulk solig'i va xizmat badelari kabi qo'shimcha xarajatlar bo'lishi mumkin. Bu xarajatlar haqida batafsil ma'lumot berishim mumkin."
+  },
+  {
+    "savol": "Barcha savollarimga javob berganing uchun rahmat, bu juda foydali bo'ldi. Bu xonani albatta ko'rib chiqaman!",
+    "javob": "Xizmat uchun rahmat! Biz sizga barcha hollarda yordam berishdan xursandmiz. Agar boshqa savollaringiz bo'lsa yoki xonani ko'rishni xohlasangiz, murojaat qilishingiz mumkin."
+  },
+  {
+    "savol": "Salom, bu xonadan qiziqayapman, lekin e'londa unga kunduzi quyosh nuri tushishi haqida ma'lumot yo'q. Xonaga yetarlicha tabiiy yorug'lik tushadimi?",
+    "javob": "Afsuski, e'londa tabiiy yorug'lik miqdori ko'rsatilmagan. Lekin xonaning binodagi joylashuvini aniqlab, kunduzlari quyosh nuriga qanday tutashib turishini bilishim mumkin."
+  },
+  {
+    "savol": "Yaxshi, buni aniqlashingiz ajoyib bo'lar edi. Kutayotganimda, atrofdagi joy haqida biroz ma'lumot bera olasizmi? Yaqin atrofda bog' yoki ko'kalamzor joylar bormi?",
+    "javob": "E'londa jozibador joylar haqida ma'lumot berilmagan bo'lishi mumkin, lekin xona [district] tumanida joylashgani uchun, atrofdagi bog' va ko'kalamzor joylar haqida internetdan ma'lumot topishingiz mumkin."
+  },
+  {
+    "savol": "Ajoyib, o'zim tekshirib ko'raman. Arz etmaydigan savol bo'lsa ham, xonada chiroqlar o'rnatilganmi?",
+    "javob": "E'londa maxsus moslamalar haqida ma'lumot yo'q, lekin mebelsiz xonalarda odatda chiroqlar o'rnatilmagan bo'ladi. Xonadagi chiroqlar holati haqida aniqlab olishimiz mumkin."
+  },
+  {
+    "savol": "Muammo emas, buni taxmin qilgandim. Oshxonada axlat o'tkazish uchun maxsus qurilma bormi?",
+    "javob": "Oshxonadagi jihozlar, masalan axlat o'tkazgich haqida ma'lumot berilmagan bo'lishi mumkin, lekin oshxonadagi boshqa jihozlar va moslamalar haqida so'rab olishim mumkin."
+  },
+  {
+    "savol": "Ajoyib, rahmat, so'raganing uchun! Yana bir savol, binoda Internet mavjudmi yoki o'zim aloqa operatorini sozlab olishimga to'g'ri keladimi?",
+    "javob": "E'londa Internet mavjudligi haqida ma'lumot yo'q. Ba'zi binolarda oldindan tanlangan Internet operatorlari bo'lishi mumkin, ammo aksariyat hollarda siz o'zingiz tanlashingiz kerak bo'ladi."
+  },
+  {
+    "savol": "Aytganing'dan xabardorman. Xonada kabel televizori mavjudmi yo'qmi?",
+    "javob": "Internetga o'xshab, kabel televizori mavjudligi haqida ham ma'lumot yo'q. Ba'zi binolarda kabel televizori bo'lishi mumkin, lekin bu ko'plab holatlarda alohida obuna bo'ladi."
+  },
+  {
+    "savol": "Tushunarli, tushuntirganingiz uchun rahmat. Ko'chib o'tish uchun aniq sana mavjudmi yoki u qurilish jarayoniga bog'liq ravishda o'zgarishlar mumkinmi?",
+    "javob": "Qurilish yakunlanish muddati [building_ends] bo'limida ko'rsatilgan. Hozirgacha qilinadigan ishlar holatiga qarab, ko'chish sanasi o'zgarishi mumkin. Qurilish yakunlanayotganda ehtimoliy oraliq sana qachon bo'lishini aniqlab olishimiz mumkin."
+  },
+  {
+    "savol": "Bu yaxshi tomonga ishorat qilyapti, sana o'zgarishi mumkinligi haqida batafsil ma'lumot olishni xohlardim. Oxirgi savol, xona yoki bino haqida boshqa muhim ma'lumotlar bormikan?",
+    "javob": "Qurilish yakunlanayotganda ko'chish muddatidagi o'zgarishlar haqida batafsil ma'lumot beramiz. Berilgan ma'lumotlardan tashqari, kutilmagan masalalar bo'lmasligi mumkin, lekin hamma narsaga aniq bo'lish uchun boshqa savollaringizni bering."
+  },
+  {
+    "savol": "Bugun bahslashishimiz shu bilan yakuniga yetdi. Ajratgan vaqtingiz va ko'rsatgan yordam uchun rahmat, bu juda foydali bo'ldi!",
+    "javob": "Xizmat qilganim uchun rahmat! Sizning qaroringizga yordam berishdan xursandmiz. Agar boshqa savollarga javob kerak bo'lsa, murojaat qilishingiz mumkin."
+  },
+  {
+    "savol": "Albatta, shu tarzda ish tutaman. Xayr, yaxshi kun tilayman!",
+    "javob": "Rahmat"
+  }
+]
