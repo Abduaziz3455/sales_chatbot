@@ -57,10 +57,23 @@ if not os.path.exists(persist_directory):
 else:
     vector_db = Chroma(persist_directory=persist_directory, embedding_function=OpenAIEmbeddings())
 
-# retriever = vector_db.as_retriever(search_kwargs={"k": 10})
-retriever_from_llm = MultiQueryRetriever.from_llm(retriever=vector_db.as_retriever(), llm=chat_model)
+query_prompt = PromptTemplate(
+    input_variables=["question"],
+    template="""You are an AI language model assistant. Your task is 
+    to generate 3 different versions of the given user 
+    question to retrieve relevant documents from a vector database. 
+    By generating multiple perspectives on the user question, 
+    your goal is to help the user overcome some of the limitations 
+    of distance-based similarity search. Provide these alternative 
+    questions separated by newlines without ordinal numbers. 
+    Original question: {question}""",
+)
 
-# qa_chain = ({"context": retriever,
+# retriever = vector_db.as_retriever(search_kwargs={"k": 10})
+retriever_from_llm = MultiQueryRetriever.from_llm(retriever=vector_db.as_retriever(), llm=chat_model,
+                                                  include_original=True, prompt=query_prompt)
+
+# qa_chain = ({"context": retriever_from_llm,
 #             "question": RunnablePassthrough()} | prompt_template | chat_model | StrOutputParser())
 qa_chain = RetrievalQA.from_chain_type(chat_model, retriever=retriever_from_llm, return_source_documents=False, verbose=True,
                                        chain_type_kwargs={"verbose": True, "prompt": prompt_template})
