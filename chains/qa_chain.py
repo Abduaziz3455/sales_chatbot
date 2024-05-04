@@ -58,7 +58,6 @@ else:
     vector_db = Chroma(persist_directory=persist_directory, embedding_function=OpenAIEmbeddings())
 
 retriever_from_llm = FlatRetriever(db=vector_db, chat_model=chat_model)
+
 qa_chain = ({"context": retriever_from_llm,
             "question": RunnablePassthrough()} | prompt_template | chat_model | StrOutputParser())
-# qa_chain = RetrievalQA.from_chain_type(chat_model, retriever=retriever_from_llm, return_source_documents=False, verbose=True,
-#                                        chain_type_kwargs={"verbose": True, "prompt": prompt_template})
