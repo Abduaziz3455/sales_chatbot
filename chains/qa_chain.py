@@ -73,7 +73,7 @@ query_prompt = PromptTemplate(
 retriever_from_llm = MultiQueryRetriever.from_llm(retriever=vector_db.as_retriever(), llm=chat_model,
                                                   include_original=True, prompt=query_prompt)
 
-# qa_chain = ({"context": retriever_from_llm,
-#             "question": RunnablePassthrough()} | prompt_template | chat_model | StrOutputParser())
-qa_chain = RetrievalQA.from_chain_type(chat_model, retriever=retriever_from_llm, return_source_documents=False, verbose=True,
-                                       chain_type_kwargs={"verbose": True, "prompt": prompt_template})
+qa_chain = ({"context": retriever_from_llm,
+            "question": RunnablePassthrough()} | prompt_template | chat_model | StrOutputParser())
+# qa_chain = RetrievalQA.from_chain_type(chat_model, retriever=retriever_from_llm, return_source_documents=False, verbose=True,
+#                                        chain_type_kwargs={"verbose": True, "prompt": prompt_template})
