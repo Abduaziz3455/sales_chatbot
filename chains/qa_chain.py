@@ -1,17 +1,17 @@
 import os
 
 import dotenv
-from langchain.chains.retrieval_qa.base import RetrievalQA
 from langchain.chat_models import ChatOpenAI
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.prompts import (PromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate,
                                ChatPromptTemplate)
-from langchain.retrievers import MultiQueryRetriever
 from langchain_community.document_loaders import CSVLoader
 from langchain_community.vectorstores import Chroma
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 from environs import Env
+
+from retriever import FlatRetriever
 
 env = Env()
 
@@ -57,22 +57,7 @@ if not os.path.exists(persist_directory):
 else:
     vector_db = Chroma(persist_directory=persist_directory, embedding_function=OpenAIEmbeddings())
 
-query_prompt = PromptTemplate(
-    input_variables=["question"],
-    template="""You are an AI language model assistant. Your task is 
-    to generate 3 different versions of the given user 
-    question to retrieve relevant documents from a vector database. 
-    By generating multiple perspectives on the user question, 
-    your goal is to help the user overcome some of the limitations 
-    of distance-based similarity search. Provide these alternative 
-    questions separated by newlines without ordinal numbers. 
-    Original question: {question}""",
-)
-
-# retriever = vector_db.as_retriever(search_kwargs={"k": 10})
-retriever_from_llm = MultiQueryRetriever.from_llm(retriever=vector_db.as_retriever(), llm=chat_model,
-                                                  include_original=True, prompt=query_prompt)
-
+retriever_from_llm = FlatRetriever(db=vector_db, chat_model=chat_model)
 qa_chain = ({"context": retriever_from_llm,
             "question": RunnablePassthrough()} | prompt_template | chat_model | StrOutputParser())
 # qa_chain = RetrievalQA.from_chain_type(chat_model, retriever=retriever_from_llm, return_source_documents=False, verbose=True,
