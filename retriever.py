@@ -1,3 +1,4 @@
+import re
 from typing import List
 
 import pandas as pd
@@ -36,11 +37,16 @@ class FlatRetriever(BaseRetriever):
         df = pd.DataFrame(dataframes)
         # room extractor
         chain = LLMChain(llm=self.chat_model, prompt=room_prompt, verbose=False, output_key='rooms')
+        text = chain({'question': query})['rooms']
         try:
-            room = int(chain({'question': query})['rooms'])
+            room = int(text)
             df = df[df['rooms'] == room]
         except:
-            pass
+            try:
+                room = int(re.findall(r'\d+', text)[0])
+                df = df[df['rooms'] == room]
+            except:
+                pass
         # price extractor
         if 'arzon' in query.lower():
             return [documents[df['total_price'].argmin()]]
