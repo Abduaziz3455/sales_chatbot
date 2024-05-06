@@ -1,4 +1,4 @@
-rooms,area,floor,repaired,terrace,region,district,house_name,builder_name,builder_phone,building_starts,building_ends,installment_pay_month,prepayment_percent,finished_flat,price_per_area,total_price,flat_plan_image_url
+rooms,area,floor,repaired,terrace,region,district,house_name,builder_name,builder_phone,building_starts,building_ends,installment_pay_month,prepayment_percent,ready-made_flat,price_per_area_sum,total_price_sum,flat_plan_image_url
 1,50.7,9,No,not available,Toshkent shahri,Shayxontohur tumani,Ko'kcha-Oqtepa,LOTUS ART HOUSE MCHJ,998934918004,23-05-2022,23-05-2024,18,30,No,12500000,633750000,"https://service.app.uysot.uz/files/com-12/image/230919-154734-a90c6636-85d0-4470.jpg, https://service.app.uysot.uz/files/com-12/image/230919-143900-f2b475fe-9412-4404.jpg, , "
 1,68.0,0,No,not available,Toshkent shahri,Shayxontohur tumani,Ko'kcha-Oqtepa,LOTUS ART HOUSE MCHJ,998934918004,23-05-2022,23-05-2024,10,30,No,3500000,238000000,not available
 1,68.1,0,No,not available,Toshkent shahri,Shayxontohur tumani,Ko'kcha-Oqtepa,LOTUS ART HOUSE MCHJ,998934918004,23-05-2022,23-05-2024,12,30,No,27335625,1861556062,not available
