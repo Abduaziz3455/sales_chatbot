@@ -38,10 +38,7 @@ class FlatRetriever(BaseRetriever):
         # room extractor
         chain = LLMChain(llm=self.chat_model, prompt=room_prompt, verbose=False, output_key='rooms')
         text = chain({'question': query})['rooms']
-        try:
-            room = int(text)
-            df = df[df['rooms'] == room]
-        except:
+        if text != 'None':
             try:
                 room = int(re.findall(r'\d+', text)[0])
                 df = df[df['rooms'] == room]
@@ -49,8 +46,8 @@ class FlatRetriever(BaseRetriever):
                 pass
         # price extractor
         if 'arzon' in query.lower():
-            return [documents[df['total_price'].argmin()]]
+            return [df.loc[df['total_price'].idxmin()]]
         elif 'qimmat' in query.lower():
-            return [documents[df['total_price'].argmax()]]
+            return [df.loc[df['total_price'].idxmax()]]
         else:
             return documents[:self.k]

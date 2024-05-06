@@ -14,7 +14,7 @@ env = Env()
 
 df = pd.read_csv('data/ready.csv')
 phone = df['builder_phone'][0]
-with open('questions.txt') as file:
+with open('data/questions.txt') as file:
     questions = file.read()
     file.close()
 
