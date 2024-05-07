@@ -46,8 +46,8 @@ class FlatRetriever(BaseRetriever):
                 pass
         # price extractor
         if 'arzon' in query.lower():
-            return [df.loc[df['total_price'].idxmin()]]
+            return [df.loc[df['total_price_sum'].idxmin()]]
         elif 'qimmat' in query.lower():
-            return [df.loc[df['total_price'].idxmax()]]
+            return [df.loc[df['total_price_sum'].idxmax()]]
         else:
             return documents[:self.k]
