@@ -18,3 +18,12 @@ class QueryOutput(BaseModel):
 
     class Config:  # tells pydantic to convert even non dict obj to json
         from_attributes = True
+
+
+class VoiceInput(BaseModel):
+    user_id: Optional[int]
+    company_id: Optional[int]
+    voice_url: str
+
+    class Config:  # tells pydantic to convert even non dict obj to json
+        from_attributes = True
