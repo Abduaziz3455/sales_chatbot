@@ -21,7 +21,7 @@ room_prompt = PromptTemplate(input_variables=["question"], template="""As an exp
 
 
 class FlatRetriever(BaseRetriever):
-    k: int = 3
+    k: int = 4
     """Number of top results to return"""
     db: VectorStore
     chat_model: BaseChatModel
@@ -50,4 +50,4 @@ class FlatRetriever(BaseRetriever):
         elif 'qimmat' in query.lower():
             return [df.loc[df['total_price_sum'].idxmax()]]
         else:
-            return documents[:self.k]
+            return [df[:self.k]]
