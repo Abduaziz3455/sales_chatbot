@@ -50,4 +50,5 @@ class FlatRetriever(BaseRetriever):
         elif 'qimmat' in query.lower():
             return [df.loc[df['total_price_sum'].idxmax()]]
         else:
-            return [df[:self.k]]
+            x = df[:self.k].to_dict(orient="records")
+            return x

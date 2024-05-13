@@ -24,7 +24,7 @@ persist_directory = "chroma_data/"
 review_template_str = """Use flat features to answer client questions about flats.
 Use the following context to answer questions.
 Be as detailed as possible, but don't make up any information that's not from the context.
-If you don't know an answer just say don't know and send admins contact from context.
+If you don't know an answer just say don't know.
 All answers should be in Uzbek.
 
 Context:

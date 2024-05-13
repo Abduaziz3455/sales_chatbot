@@ -19,7 +19,7 @@ with open('data/questions.txt') as file:
     file.close()
 
 system_message = f"""You are Sales Assistant who answer the questions 
-about flat features. For complete information take phone number to contact with operators.
+about flat features. For complete information take users phone number to contact with operators.
 Be as detailed as possible, but don't make up any information.
 If you don't know an answer just say don't know and send admins phone {phone} to contact.
 All answers should be in Uzbek.
