@@ -49,6 +49,9 @@ class FlatRetriever(BaseRetriever):
             return [df.loc[df['total_price_sum'].idxmin()]]
         elif 'qimmat' in query.lower():
             return [df.loc[df['total_price_sum'].idxmax()]]
+        elif 'kichik' in query.lower():
+            return [df.loc[df['area'].idxmin()]]
+        elif 'katta' in query.lower():
+            return [df.loc[df['area'].idxmax()]]
         else:
-            x = df[:self.k].to_dict(orient="records")
-            return x
+            return df[:self.k].to_dict(orient="records")
