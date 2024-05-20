@@ -1,5 +1,5 @@
-from langchain.agents import AgentExecutor, Tool, create_openai_functions_agent
-from langchain.chat_models.openai import ChatOpenAI
+from langchain.agents import AgentExecutor, Tool, create_tool_calling_agent
+from langchain_anthropic import ChatAnthropic
 from langchain_community.chat_message_histories import SQLChatMessageHistory
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.prompts import MessagesPlaceholder
@@ -59,12 +59,13 @@ tools = [
     ),
 ]
 
-chat_model = ChatOpenAI(
+chat_model = ChatAnthropic(
     model=env.str('MODEL'),
     temperature=0,
+    default_headers={'anthropic-beta': 'tools-2024-05-16'}
 )
 
-openai_agent = create_openai_functions_agent(
+openai_agent = create_tool_calling_agent(
     llm=chat_model,
     prompt=agent_prompt,
     tools=tools,

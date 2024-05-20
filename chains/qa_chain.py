@@ -1,19 +1,28 @@
 import os
 
 import dotenv
-from langchain.chat_models import ChatOpenAI
-from langchain.embeddings import OpenAIEmbeddings
-from langchain.prompts import (PromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate,
-                               ChatPromptTemplate)
+import pandas as pd
+from environs import Env
+from langchain_community.embeddings import OpenAIEmbeddings
+from langchain.prompts import ChatPromptTemplate
+from langchain_anthropic import ChatAnthropic
+from langchain_community.chat_message_histories import SQLChatMessageHistory
 from langchain_community.document_loaders import CSVLoader
 from langchain_community.vectorstores import Chroma
 from langchain_core.output_parsers import StrOutputParser
+from langchain_core.prompts import MessagesPlaceholder
 from langchain_core.runnables import RunnablePassthrough
-from environs import Env
+from langchain_core.runnables.history import RunnableWithMessageHistory
 
 from retriever import FlatRetriever
 
 env = Env()
+
+df = pd.read_csv('data/ready.csv')
+phone = df['builder_phone'][0]
+with open('data/questions.txt') as file:
+    questions = file.read()
+    file.close()
 
 output_parser = StrOutputParser()
 
@@ -21,32 +30,25 @@ dotenv.load_dotenv()
 
 persist_directory = "chroma_data/"
 
-review_template_str = """Use flat features to answer client questions about flats.
-Use the following context to answer questions.
-Be as detailed as possible, but don't make up any information that's not from the context.
-If you don't know an answer just say don't know.
-All answers should be in Uzbek.
+temp = f"""You are Sales Assistant who answer the questions about flat features.
+Use the following context to answer the questions.
+Be concise, as detailed as possible, but don't make up any information that's not from the context. 
+send information in an ordered format. If you don't know an answer just say don't know 
+and send admins phone {phone} to contact. All answers should be in Uzbek.
+
+Here is additional questions with answers:
+{questions}
 
 Context:
-{context}
 """
 
-# Restrictions:
-# Avoid offering expensive apartments
-# Not providing information about prices
-# Submit information for one household only.
+review_template_str = temp + '{context}'
 
-review_system_prompt = SystemMessagePromptTemplate(
-    prompt=PromptTemplate(input_variables=["context"], template=review_template_str, ))
+prompt_template = ChatPromptTemplate.from_messages(
+    [("system", review_template_str), MessagesPlaceholder("chat_history", optional=True),
+     ("human", "Question: {question}"), ])
 
-review_human_prompt = HumanMessagePromptTemplate(
-    prompt=PromptTemplate(input_variables=["question"], template="Question: {question}", ))
-
-messages = [review_system_prompt, review_human_prompt]
-
-prompt_template = ChatPromptTemplate(input_variables=["context", "question"], messages=messages)
-
-chat_model = ChatOpenAI(model=env.str('MODEL'), temperature=0)
+chat_model = ChatAnthropic(model=env.str('MODEL'), temperature=0, )
 
 if not os.path.exists(persist_directory):
     loader = CSVLoader("data/ready.csv")
@@ -60,4 +62,9 @@ else:
 retriever_from_llm = FlatRetriever(db=vector_db, chat_model=chat_model)
 
 qa_chain = ({"context": retriever_from_llm,
-            "question": RunnablePassthrough()} | prompt_template | chat_model | StrOutputParser())
+             "question": RunnablePassthrough()} | prompt_template | chat_model | StrOutputParser())
+
+agent = RunnableWithMessageHistory(qa_chain,
+                                   lambda session_id: SQLChatMessageHistory(session_id=session_id,
+                                                                            connection_string="sqlite:///sql_app.db"),
+                                   input_messages_key="question", history_messages_key="chat_history", )

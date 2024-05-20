@@ -26,8 +26,9 @@ class FlatRetriever(BaseRetriever):
     db: VectorStore
     chat_model: BaseChatModel
 
-    def _get_relevant_documents(self, query: str, *, run_manager: CallbackManagerForRetrieverRun) -> List[Document]:
+    def _get_relevant_documents(self, query_dict: dict, *, run_manager: CallbackManagerForRetrieverRun) -> List[Document]:
         """Sync implementations for retriever."""
+        query = query_dict.get('question', '')
         documents = self.db.as_retriever(search_kwargs={"k": 50}).get_relevant_documents(query)
 
         dataframes = []

@@ -2,7 +2,7 @@ from typing import Optional
 
 import dotenv
 from langchain.chains.openai_functions import create_structured_output_runnable
-from langchain.chat_models import ChatOpenAI
+from langchain_anthropic import ChatAnthropic
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.pydantic_v1 import BaseModel, Field
 from environs import Env
@@ -21,7 +21,11 @@ prompt = ChatPromptTemplate.from_messages([("system", "You are an expert at iden
                                                       "All answers should be in Uzbek.",),
                                            ("human", "{text}"), ])
 
-llm = ChatOpenAI(model=env.str('MODEL'), temperature=0)
+llm = ChatAnthropic(
+    model=env.str('MODEL'),
+    temperature=0,
+    default_headers={"anthropic-beta": 'tools-2024-05-16'}
+)
 
 
 def extract_chain(input: str):
