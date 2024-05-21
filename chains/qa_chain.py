@@ -52,7 +52,7 @@ prompt_template = ChatPromptTemplate.from_messages(
     [("system", review_template_str), MessagesPlaceholder("chat_history", optional=True),
      ("human", "Question: {question}"), ])
 
-chat_model = ChatAnthropic(model=env.str('MODEL'), temperature=0, max_tokens=500)
+chat_model = ChatAnthropic(model=env.str('MODEL'), temperature=0)
 embeddings = OpenAIEmbeddings(model='text-embedding-3-small')
 
 if not os.path.exists(persist_directory):
