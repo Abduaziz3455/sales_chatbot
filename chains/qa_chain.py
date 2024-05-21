@@ -52,7 +52,7 @@ prompt_template = ChatPromptTemplate.from_messages(
     [("system", review_template_str), MessagesPlaceholder("chat_history", optional=True),
      ("human", "Question: {question}"), ])
 
-chat_model = ChatAnthropic(model=env.str('MODEL'), temperature=0, max_tokens=300)
+chat_model = ChatAnthropic(model=env.str('MODEL'), temperature=0, max_tokens=500)
 embeddings = OpenAIEmbeddings(model='text-embedding-3-small')
 
 if not os.path.exists(persist_directory):
@@ -64,7 +64,7 @@ if not os.path.exists(persist_directory):
 else:
     vector_db = Chroma(persist_directory=persist_directory, embedding_function=embeddings)
 
-retriever_from_llm = FlatRetriever(db=vector_db)
+retriever_from_llm = FlatRetriever(db=vector_db, chat_model=chat_model)
 
 qa_chain = ({"context": retriever_from_llm,
              "question": RunnablePassthrough()} | prompt_template | chat_model | StrOutputParser())
