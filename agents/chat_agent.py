@@ -62,7 +62,8 @@ tools = [
 chat_model = ChatAnthropic(
     model=env.str('MODEL'),
     temperature=0,
-    default_headers={'anthropic-beta': 'tools-2024-05-16'}
+    default_headers={'anthropic-beta': 'tools-2024-05-16'},
+    max_tokens=300
 )
 
 openai_agent = create_tool_calling_agent(
