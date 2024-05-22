@@ -5,14 +5,14 @@ from pydantic import BaseModel
 
 class QueryInput(BaseModel):
     message: str
-    user_id: Optional[int]
+    user_id: Optional[str]
     company_id: Optional[int]
 
 
 class QueryOutput(BaseModel):
     input: str
     output: str
-    user_id: int
+    user_id: str
     company_id: int
     intermediate_steps: list[str]
 
@@ -21,7 +21,7 @@ class QueryOutput(BaseModel):
 
 
 class VoiceInput(BaseModel):
-    user_id: Optional[int]
+    user_id: Optional[str]
     company_id: Optional[int]
     voice_url: str
 

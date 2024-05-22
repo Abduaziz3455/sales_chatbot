@@ -17,7 +17,7 @@ router = APIRouter()
 
 
 @async_retry(max_retries=3, delay=1)
-async def invoke_agent_with_retry(query: str, user_id):
+async def invoke_agent_with_retry(query: str, user_id: str):
     """
     Retry the agent if a tool fails to run. This can help when there
     are intermittent connection issues to external APIs.

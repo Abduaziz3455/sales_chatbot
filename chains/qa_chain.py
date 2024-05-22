@@ -1,22 +1,19 @@
 import os
 
 import dotenv
-from langchain_openai import ChatOpenAI
-from langchain_openai.embeddings import OpenAIEmbeddings
+from environs import Env
 from langchain.prompts import (PromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate,
                                ChatPromptTemplate)
 from langchain_community.document_loaders import CSVLoader
 from langchain_community.vectorstores import Chroma
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
-from environs import Env
+from langchain_openai import ChatOpenAI
+from langchain_openai.embeddings import OpenAIEmbeddings
 
 from retriever import FlatRetriever
 
 env = Env()
-
-output_parser = StrOutputParser()
-
 dotenv.load_dotenv()
 
 persist_directory = "chroma_data/"
@@ -60,4 +57,4 @@ else:
 retriever_from_llm = FlatRetriever(db=vector_db, chat_model=chat_model)
 
 qa_chain = ({"context": retriever_from_llm,
-            "question": RunnablePassthrough()} | prompt_template | chat_model | StrOutputParser())
+             "question": RunnablePassthrough()} | prompt_template | chat_model | StrOutputParser())
