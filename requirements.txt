@@ -2,7 +2,7 @@ httpx==0.26.0
 requests==2.31.0
 
 alembic~=1.13.1
-langchain~=0.1.16
+langchain~=0.2.0
 python-dotenv~=1.0.0
 pydantic~=2.7.0
 fastapi~=0.109.0
@@ -10,4 +10,8 @@ sqlalchemy~=2.0.25
 # alembic revision --autogenerate -m "create user and blog table migrations"
 # alembic upgrade head
 # uvicorn main:app --host 0.0.0.0 --port 8000
-pandas~=2.2.1
+pandas~=1.5.3
+environs~=9.5.0
+openai~=1.30.1
+langsmith~=0.1.49
+langchain_openai

@@ -1,8 +1,8 @@
 import os
 
 import dotenv
-from langchain.chat_models import ChatOpenAI
-from langchain.embeddings import OpenAIEmbeddings
+from langchain_openai import ChatOpenAI
+from langchain_openai.embeddings import OpenAIEmbeddings
 from langchain.prompts import (PromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate,
                                ChatPromptTemplate)
 from langchain_community.document_loaders import CSVLoader

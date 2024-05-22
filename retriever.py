@@ -41,7 +41,7 @@ class FlatRetriever(BaseRetriever):
         if text != 'None':
             try:
                 room = int(re.findall(r'\d+', text)[0])
-                df = df[df['rooms'] == room]
+                df = df[df['rooms'] == room].sort_values(by=['total_price_sum'], ascending=True)
             except:
                 pass
         # price extractor

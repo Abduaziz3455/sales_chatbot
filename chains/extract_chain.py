@@ -2,7 +2,7 @@ from typing import Optional
 
 import dotenv
 from langchain.chains.openai_functions import create_structured_output_runnable
-from langchain.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.pydantic_v1 import BaseModel, Field
 from environs import Env

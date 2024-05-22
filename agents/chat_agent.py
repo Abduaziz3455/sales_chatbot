@@ -1,5 +1,5 @@
 from langchain.agents import AgentExecutor, Tool, create_openai_functions_agent
-from langchain.chat_models.openai import ChatOpenAI
+from langchain_openai import ChatOpenAI
 from langchain_community.chat_message_histories import SQLChatMessageHistory
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.prompts import MessagesPlaceholder
