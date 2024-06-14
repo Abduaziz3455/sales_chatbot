@@ -4,7 +4,7 @@ from fastapi import Depends
 from sqlalchemy import delete, table
 from sqlalchemy.orm import Session
 
-from agents.chat_agent import agent
+from chains.qa_chain import qa_chain
 from db.repository.chat_crud import create_new_message
 from db.session import get_db
 from schemas.chat_query import QueryInput, QueryOutput, VoiceInput
@@ -22,7 +22,7 @@ async def invoke_agent_with_retry(query: str, user_id: str):
     Retry the agent if a tool fails to run. This can help when there
     are intermittent connection issues to external APIs.
     """
-    return await agent.ainvoke({"input": query}, config={"configurable": {"session_id": user_id}})
+    return await qa_chain.ainvoke(input={'question': query}, config={"configurable": {"session_id": user_id}})
 
 
 def stt(file):
@@ -57,9 +57,9 @@ async def get_status():
 @router.post("/agent", response_model=QueryOutput, status_code=status.HTTP_201_CREATED)
 async def send_message(query: QueryInput, db: Session = Depends(get_db)):
     agent_response = await invoke_agent_with_retry(query.message, query.user_id)
-    response = {'input': query.message, 'output': agent_response['output'], 'user_id': query.user_id,
-                'company_id': query.company_id, 'intermediate_steps': agent_response['intermediate_steps']}
-    response["intermediate_steps"] = [str(s) for s in response["intermediate_steps"]]
+    response = {'input': query.message, 'output': agent_response, 'user_id': query.user_id,
+                'company_id': query.company_id}
+    # response["intermediate_steps"] = [str(s) for s in response["intermediate_steps"]]
     create_new_message(response.copy(), db)
     return response
 

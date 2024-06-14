@@ -14,7 +14,7 @@ class QueryOutput(BaseModel):
     output: str
     user_id: str
     company_id: int
-    intermediate_steps: list[str]
+    # intermediate_steps: list[str]
 
     class Config:  # tells pydantic to convert even non dict obj to json
         from_attributes = True

@@ -5,10 +5,13 @@ import pandas as pd
 from langchain.chains.llm import LLMChain
 from langchain_core.callbacks import CallbackManagerForRetrieverRun
 from langchain_core.documents import Document
-from langchain_core.language_models import BaseChatModel
 from langchain_core.prompts import PromptTemplate
 from langchain_core.retrievers import BaseRetriever
 from langchain_core.vectorstores import VectorStore
+from langchain_openai import ChatOpenAI
+from environs import Env
+
+env = Env()
 
 room_prompt = PromptTemplate(input_variables=["question"], template="""As an expert in text extraction, your task is to extract room numbers from user questions. 
     
@@ -21,13 +24,13 @@ room_prompt = PromptTemplate(input_variables=["question"], template="""As an exp
 
 
 class FlatRetriever(BaseRetriever):
-    k: int = 4
+    k: int = 3
     """Number of top results to return"""
     db: VectorStore
-    chat_model: BaseChatModel
 
-    def _get_relevant_documents(self, query: str, *, run_manager: CallbackManagerForRetrieverRun) -> List[Document]:
+    def _get_relevant_documents(self, dict_query: dict, *, run_manager: CallbackManagerForRetrieverRun) -> List[Document]:
         """Sync implementations for retriever."""
+        query = dict_query["question"]
         documents = self.db.as_retriever(search_kwargs={"k": 50}).get_relevant_documents(query)
 
         dataframes = []
@@ -36,7 +39,8 @@ class FlatRetriever(BaseRetriever):
             dataframes.append(df.loc[document.metadata['row'], :])
         df = pd.DataFrame(dataframes)
         # room extractor
-        chain = LLMChain(llm=self.chat_model, prompt=room_prompt, verbose=False, output_key='rooms')
+        chat_model = ChatOpenAI(model='gpt-3.5-turbo', temperature=0)
+        chain = LLMChain(llm=chat_model, prompt=room_prompt, verbose=False, output_key='rooms')
         text = chain({'question': query})['rooms']
         if text != 'None':
             try:

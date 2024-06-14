@@ -4,10 +4,12 @@ import dotenv
 from environs import Env
 from langchain.prompts import (PromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate,
                                ChatPromptTemplate)
+from langchain_community.chat_message_histories import SQLChatMessageHistory
 from langchain_community.document_loaders import CSVLoader
 from langchain_community.vectorstores import Chroma
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
+from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_openai import ChatOpenAI
 from langchain_openai.embeddings import OpenAIEmbeddings
 
@@ -18,12 +20,10 @@ dotenv.load_dotenv()
 
 persist_directory = "chroma_data/"
 
-review_template_str = """Use flat features to answer client questions about flats.
-Use the following context to answer questions.
+review_template_str = """
+Use the following context to answer the questions.
 Be as detailed as possible, but don't make up any information that's not from the context.
-If you don't know an answer just say don't know.
 All answers should be in Uzbek.
-
 Context:
 {context}
 """
@@ -54,7 +54,17 @@ if not os.path.exists(persist_directory):
 else:
     vector_db = Chroma(persist_directory=persist_directory, embedding_function=OpenAIEmbeddings())
 
-retriever_from_llm = FlatRetriever(db=vector_db, chat_model=chat_model)
+retriever_from_llm = FlatRetriever(db=vector_db)
+# retriever_from_llm = vector_db.as_retriever(search_kwargs={"k": 5})
 
-qa_chain = ({"context": retriever_from_llm,
-             "question": RunnablePassthrough()} | prompt_template | chat_model | StrOutputParser())
+chain = ({"context": retriever_from_llm,
+         "question": RunnablePassthrough()} | prompt_template | chat_model | StrOutputParser())
+
+qa_chain = RunnableWithMessageHistory(
+    chain,
+    lambda session_id: SQLChatMessageHistory(
+        session_id=session_id, connection_string="sqlite:///sql_app.db"
+    ),
+    input_messages_key="question",
+    history_messages_key="history",
+)
