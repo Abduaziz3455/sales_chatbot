@@ -23,7 +23,7 @@ persist_directory = "chroma_data/"
 review_template_str = """
 Use the following context to answer the questions.
 Be as detailed as possible, but don't make up any information that's not from the context.
-All answers should be in Uzbek.
+If you don't know an answer just say don't know. All answers should be in Uzbek.
 Context:
 {context}
 """
