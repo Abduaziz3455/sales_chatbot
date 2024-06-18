@@ -44,22 +44,38 @@ class FlatRetriever(BaseRetriever):
         Document]:
         """Sync implementations for retriever."""
         query = dict_query["question"]
-        documents = self.db.as_retriever(search_kwargs={"k": 50}).get_relevant_documents(query)
+        documents = self.db.as_retriever(search_kwargs={"k": 100}).get_relevant_documents(query)
 
+        # Read all document data into a single DataFrame
         dataframes = []
-        df = pd.read_csv(documents[0].metadata['source'])
         for document in documents:
+            df = pd.read_csv(document.metadata['source'])
             dataframes.append(df.loc[document.metadata['row'], :])
         df = pd.DataFrame(dataframes)
-        # room extractor
+
+        # Extract response for filtering
         response = extract_chain(query)
-        room = response['Rooms']
-        if room != 'None':
-            try:
-                df = df[df['rooms'] == room].sort_values(by=['total_price_sum'], ascending=True)
-            except:
-                pass
-        # price extractor
+
+        # Apply filters dynamically
+        for key, value in response.items():
+            if value is not None:
+                try:
+                    if key == 'Area':
+                        # Apply range filter for 'Area'
+                        df = df[(df['area'] >= value - 5) & (df['area'] <= value + 5)]
+                    elif key == 'FlatStatus':
+                        value_string = {0: 'No', 1: 'Yes'}
+                        df = df[df['repaired'] == value_string[value]]
+                    else:
+                        # Apply exact match filter for other keys
+                        df = df[df[key.lower()] == value]
+                except KeyError:
+                    print(f"Key {key.lower()} not found in DataFrame columns.")
+
+        # Sort the DataFrame by 'total_price_sum'
+        df = df.sort_values(by=['total_price_sum'], ascending=True)
+
+        # Return specific results based on query
         if 'arzon' in query.lower():
             return [df.loc[df['total_price_sum'].idxmin()]]
         elif 'qimmat' in query.lower():
