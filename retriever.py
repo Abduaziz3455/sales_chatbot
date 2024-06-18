@@ -44,7 +44,7 @@ class FlatRetriever(BaseRetriever):
         Document]:
         """Sync implementations for retriever."""
         query = dict_query["question"]
-        documents = self.db.as_retriever(search_kwargs={"k": 100}).get_relevant_documents(query)
+        documents = self.db.as_retriever(search_kwargs={"k": 50}).get_relevant_documents(query)
 
         # Read all document data into a single DataFrame
         dataframes = []
